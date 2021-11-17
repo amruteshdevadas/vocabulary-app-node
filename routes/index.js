@@ -1,4 +1,4 @@
-const { axios } = require("axios");
+const axios = require("axios");
 var express = require("express");
 var router = express.Router();
 require("dotenv").config();
@@ -33,9 +33,9 @@ router.get("/getpost/:id", async (req, res) => {
 
 router.post("/addword", async (req, res) => {
   let word = req.body.value;
-  let response = await axios
-    .get(`https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/${word}`, {
-      headers: { app_id: `${process.env.DICT_ID}`, app_key: `${process.env.DICT_KEY}` },
+
+   await axios.get(`https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/${word}`, {
+      headers: { app_id: `${process.env.DICT_ID}`, app_key: `${process.env.DICT_KEY}`},
     })
     .then(async (response) => {
       console.log(response.data.id);
