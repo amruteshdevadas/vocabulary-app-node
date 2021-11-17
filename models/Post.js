@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const schema = mongoose.Schema;
-const userSchema = new schema({
+const postSchema = new schema({
     post:{
         type:Array,
         required:true
@@ -12,5 +12,5 @@ const userSchema = new schema({
    
 })
 
-const Post = mongoose.model('Posts',userSchema,'posts')
+const Post = mongoose.model('Posts',postSchema,'posts')
 module.exports= Post;
